@@ -112,8 +112,46 @@ public class ZeroClass {
         return ((dividend ^ divisor) >>> 31) == 0 ? quotient : -quotient;
     }
 	
-	
-	
+	/*
+    given an integer in base 10, convert to a given base k
+    110 -> 2 
+    8 / 2 = 4
+    4 / 2 = 2
+    2 / 2 = 1
+    shift++;
+    */
+	@Test
+	public void testconvert() {
+		int num = 2;
+		int[] res = convertToBaseK(num, 2);
+		for (int i : res) {
+			System.out.print(i + ",");
+		}
+	}
+	public int[] convertToBaseK(int num, int k) {
+        
+        int base = k;
+        int div = 1;
+        int pos = 0;
+        while (num / div >= base) {
+            div *= base;
+            pos ++;
+        }
+        
+        int[] digit = new int[pos + 1];
+        
+        while (pos >= 0) {
+            if (num >= div) { //get times of div
+                int times = num / div;
+                num -= times * div;
+                digit[digit.length - 1 - pos] = times;
+            }
+            pos--;
+            div /= base;
+        }
+        
+        return digit;
+    }
 	/**
 	 * 4. Roman to Integer
 	 * first, familiar with Roman and Integer transformation rule
