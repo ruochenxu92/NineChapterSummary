@@ -122,23 +122,23 @@ public class FourClass {
 	 *  2. 1 -> 1 -> 1 -> 2      2;
 	 */
 	public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        while (head.next != null && head.next.next != null) {
-            if (head.next.val == head.next.next.val) {
-                int cur = head.next.val;
-                while (head.next != null && head.next.val == cur) {
-                    head.next = head.next.next;
-                }
-            } else {
-                head = head.next;
-            }
-        }
-        return dummy.next;
-    }
+	        if (head == null || head.next == null) {
+	            return head;
+	        }
+	        ListNode dummy = new ListNode(0);
+	        dummy.next = head;
+	        while (head.next != null && head.next.next != null) {
+	            if (head.next.val == head.next.next.val) {
+	                int cur = head.next.val;
+	                while (head.next != null && head.next.val == cur) {
+	                    head.next = head.next.next;
+	                }
+	            } else {
+	                head = head.next;
+	            }
+	        }
+	        return dummy.next;
+	}
 	
 	
 	
@@ -151,32 +151,32 @@ public class FourClass {
 	
 	
 	public ListNode rotateRight(ListNode head, int n) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        int length = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            length++;
-        }
-        n = n % length;
-        if (n == 0) {
-            return head;
-        }
-        int k = length - n;
-        ListNode pre = null;
-        
-        ListNode cur = head;
-        for(int i = 1; i < length; i++) {
-            if (i == k) {
-                pre = cur;
-            }
-            cur = cur.next;
-        }
-        ListNode newhead = pre.next;
-        pre.next = null;
-        cur.next = head;
-        return newhead;
-    }
+	        if (head == null || head.next == null) {
+	            return head;
+	        }
+	        int length = 0;
+	        for (ListNode cur = head; cur != null; cur = cur.next) {
+	            length++;
+	        }
+	        n = n % length;
+	        if (n == 0) {
+	            return head;
+	        }
+	        int k = length - n;
+	        ListNode pre = null;
+	        
+	        ListNode cur = head;
+	        for(int i = 1; i < length; i++) {
+	            if (i == k) {
+	                pre = cur;
+	            }
+	            cur = cur.next;
+	        }
+	        ListNode newhead = pre.next;
+	        pre.next = null;
+	        cur.next = head;
+	        return newhead;
+	}
 	
 	
 	
@@ -217,7 +217,7 @@ public class FourClass {
 	 * 1. reverse Nodes in k-Group 
 	 */
 	
-	public ListNode reverseKGroup(ListNode head, int k) {
+    public ListNode reverseKGroup(ListNode head, int k) {
         if (head == null || head.next == null) {
             return head;
         }
